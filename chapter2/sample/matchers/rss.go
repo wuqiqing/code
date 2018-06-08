@@ -7,8 +7,7 @@ import (
 	"log"
 	"net/http"
 	"regexp"
-
-	"github.com/goinaction/code/chapter2/sample/search"
+	"code/chapter2/sample/search"
 )
 
 type (

@@ -25,7 +25,6 @@ func Match(matcher Matcher, feed *Feed, searchTerm string, results chan<- *Resul
 		log.Println(err)
 		return
 	}
-
 	// Write the results to the channel.
 	for _, result := range searchResults {
 		results <- result

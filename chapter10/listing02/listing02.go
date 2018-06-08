@@ -75,7 +75,7 @@ type System struct {
 // pull knows how to pull bulks of data from any Puller.
 func pull(p Puller, data []Data) (int, error) {
 	for i := range data {
-		if err := p.Pull(&data[i]); err != nil {
+		if err := p.Pull(&data[i]); err != nil { 	// 多态
 			return i, err
 		}
 	}

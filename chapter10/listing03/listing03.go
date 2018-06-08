@@ -37,7 +37,6 @@ type PullStorer interface {
 	Puller
 	Storer
 }
-
 // =============================================================================
 
 // Xenia is a system we need to pull data from.

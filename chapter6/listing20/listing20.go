@@ -2,45 +2,55 @@
 // channel to simulate a game of tennis between two goroutines.
 package main
 
+import "fmt"
+
+/*
+
 import (
-	"fmt"
 	"math/rand"
 	"sync"
 	"time"
 )
+*/
 
 // wg is used to wait for the program to finish.
+/*
 var wg sync.WaitGroup
 
 func init() {
 	rand.Seed(time.Now().UnixNano())
 }
+*/
 
 // main is the entry point for all Go programs.
 func main() {
 	// Create an unbuffered channel.
-	court := make(chan int)
+	court := make(chan<- int64)
 
 	// Add a count of two, one for each goroutine.
-	wg.Add(2)
+	//wg.Add(2)
 
 	// Launch two players.
-	go player("Nadal", court)
-	go player("Djokovic", court)
+	//go player("Nadal", court)
+	//go player("Djokovic", court)
 
 	// Start the set.
 	court <- 1
 
+	for i := range court {
+		fmt.Println(i)
+	}
 	// Wait for the game to finish.
-	wg.Wait()
+	//wg.Wait()
 }
 
 // player simulates a person playing the game of tennis.
-func player(name string, court chan int) {
+/*func player(name string, court chan<- int) {
 	// Schedule the call to Done to tell main we are done.
 	defer wg.Done()
-
-	for {
+	//court<- 1
+	//fmt.Println(court)
+	*//*for {
 		// Wait for the ball to be hit back to us.
 		ball, ok := <-court
 		if !ok {
@@ -65,5 +75,5 @@ func player(name string, court chan int) {
 
 		// Hit the ball back to the opposing player.
 		court <- ball
-	}
-}
+	}*//*
+}*/

@@ -3,20 +3,31 @@ package main
 
 import (
 	"log"
+	"os"
 )
-
+var debuger log.Logger
 func init() {
-	log.SetPrefix("TRACE: ")
-	log.SetFlags(log.Ldate | log.Lmicroseconds | log.Llongfile)
+	fileName := "Info_First.log"
+	logFile, err := os.Create(fileName)
+	//defer logFile.Close()
+	if err != nil {
+		log.Fatalln("open file error")
+	}
+	debuger = *log.New(logFile, "[Info]", log.Llongfile)
+	debuger.SetPrefix("TRACE: ")
+
+	//log.SetFlags(log.Ldate | log.Lmicroseconds | log.Llongfile)
 }
 
 func main() {
+
+	debuger.Println("message")
 	// Println writes to the standard logger.
-	log.Println("message")
+	//debuger.Println("message")
 
 	// Fatalln is Println() followed by a call to os.Exit(1).
-	log.Fatalln("fatal message")
+	//debuger.Fatalln("fatal message")
 
 	// Panicln is Println() followed by a call to panic().
-	log.Panicln("panic message")
+	//debuger.Panicln("panic message")
 }

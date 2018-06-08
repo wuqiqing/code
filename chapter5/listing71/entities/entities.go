@@ -4,6 +4,11 @@ package entities
 
 // User defines a user in the program.
 type User struct {
-	Name  string
+	name  string
 	email string
+	age   int
+}
+
+func init() {
+
 }

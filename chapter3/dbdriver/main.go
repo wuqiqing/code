@@ -5,10 +5,11 @@ package main
 import (
 	"database/sql"
 
-	_ "github.com/goinaction/code/chapter3/dbdriver/postgres"
+	//"code/chapter3/dbdriver/mysql"
 )
 
 // main is the entry point for the application.
 func main() {
 	sql.Open("postgres", "mydb")
+
 }

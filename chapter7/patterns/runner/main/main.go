@@ -8,7 +8,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/goinaction/code/chapter7/patterns/runner"
+	"code/chapter7/patterns/runner"
 )
 
 // timeout is the number of second the program has to finish.
@@ -43,7 +43,9 @@ func main() {
 // number of seconds based on the id.
 func createTask() func(int) {
 	return func(id int) {
-		log.Printf("Processor - Task #%d.", id)
+		for i:=0;i<100;i++{
+			log.Printf("Processor - Task #%d.		xuhao:%d", id,i)
+		}
 		time.Sleep(time.Duration(id) * time.Second)
 	}
 }
